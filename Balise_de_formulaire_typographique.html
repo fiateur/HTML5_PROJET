@@ -13,7 +13,6 @@
     
 </head>
 <body id="idBody">
-
         
         <!-- enctype="multipart/form-data" : Utile pour la balise d'entree de type="file" -->
         <form action="Balise_de_reference.html" method="post" enctype="multipart/form-data">
@@ -126,7 +125,6 @@
             </div>
         </div>
         <!-- Insertion d'icone -->
-        
         <br>
         <!-- Insertion d'un tableau qui aura deux colonnes d'icones -->
         <table id="tab1" border="0px">
@@ -160,6 +158,69 @@
             </tbody>
 
         </table>
+        <hr>
+        <div class="group" style="display: inline-flex;">
+            <div>
+                ici c'est la div 1. 
+                On va tester la valeur online de l'attribut display
+            </div>
+            <div>
+                ici c'est la div 2. 
+                On va tester la valeur online de l'attribut display
+            </div>
+            <div>
+                ici c'est la div 3. 
+                On va tester la valeur online de l'attribut display
+            </div>
+            <div>
+                ici c'est la div 4. 
+                On va tester la valeur online de l'attribut display
+            </div>
+        </div>
+
+        <hr>
+        <div class="head" style="position: relative;">
+            <div class="divChild1">
+                ici c'est la div 1. 
+                On va tester la valeur online de l'attribut display
+            </div>
+            <div class="divChild2" style="position: sticky;">
+                ici c'est la div 2. 
+                On va tester la valeur online de l'attribut display
+            </div>
+            <div class="divChild3" style="position:absolute; top: 50%; left: 40%; bottom: 20%; right: 10%;">
+                ici c'est la div 3. 
+                On va tester la valeur online de l'attribut display
+            </div>
+            <div class="divChild4" style="position:absolute; top: 90%; left: 40%; bottom: 20%; right: 10%;">
+                ici c'est la div 4. 
+                On va tester la valeur online de l'attribut display
+            </div>
+        </div></br>
+        <hr>
+        <!-- Exemple d'utilisation de z-index pour gerer les chevauchement -->
+        <div class="zIndex">
+            <img src="images/CIG.jpg" alt="" style="width: 200px; height: 200px; position: absolute; z-index: -1;">
+            <h1>Hello this is a index property</h1>
+        </div></br>
+        <!-- Exemple d'utilisation de overflow pour gerer les contenu le deborde -->
+         <div class="divOverflow" style="float: right; width: 400px; height: 400px; background-color: forestgreen; overflow: auto;">
+            OVERFLOW PROPRETY 
+            Étape 1 : décomposer le périmètre du projet en activités spécifiques (cf. article intitulé : WBS en pratique). Attention à bien faire la différence entre un lot de travail et une tâche.
+            Étape 2 : déterminer l’ordre des activités correspondantes. Par exemple : je ne peux pas commencer à étaler la pâte sablée d’une tarte au citron meringuée avant de l’avoir mise au frais pendant au moins 20 minutes. Et pour pouvoir mettre la boule de la pâte dans le réfrigérateur, j’ai besoin d’avoir mélangé ses ingrédients préalablement (le mélange des œufs avec le sucre, le sel et la farine), etc.
+            Étape 3 : ensuite j’ai besoin d’estimer l’effort, la durée, les personnes et les ressources nécessaires pour pouvoir exécuter ces tâches. Dans le cas d’une tarte au citron meringuée cela est très facile, mais dans le cas de la construction d’une centrale nucléaire la tâche l’est beaucoup moins, car il y a plusieurs milliers, voire des dizaines de milliers de tâches différentes.
+            Étape 4 : allouer les personnes et les ressources aux différentes activités à prévoir en fonction de leur disponibilité. Cela va sans dire, mais (ce qui va sans dire encore mieux en le disant !) il faudra veiller à ce que les ressources soient disponibles. Pour ce faire, il ne faudra pas hésiter à solliciter l’ensemble des ressources concernées par les différentes tâches lorsque vous établirez votre planning. Il faudra par exemple éviter de construire votre planning dans votre coin sans consulter les personnes pressenties ou les personnes « expertes » des tâches concernées.
+            Étape 5 : ajuster régulièrement l’ordre, les estimations et les ressources jusqu’à ce que tout le monde soit d’accord sur le planning. Pour ce faire, il faudra mettre en avant vos talents de négociation ! 
+         </div>
+         
+         <div>
+            <h1 style="color: red; float: left; width: 200px;">
+                La méthode des antécédents est une technique que l’on utilise pour relier les activités d’un projet entre elles et montrer l’ordre dans lequel ces tâches devront être réalisées pour minimiser la durée totale d’un projet (j’en ai déjà parlé lors d’un précédent article qui parlait du chemin critique, n’hésitez pas à le parcourir en consultant la table des matières).    
+            </h1>
+            <h2 style="color: greenyellow; float: left; width: 200px;">
+                Il s’agit du lien logique qui existe entre 2 activités. L’activité successeur ne peut pas commencer tant que l’activité prédécesseur ne s’est pas terminée. C’est ce type de liaison qui est utilisé dans l’écrasante majorité des cas. Le problème avec ce type de liaison, c’est qu’elle n’optimise pas le calendrier car on est obligé d’attendre que l’activité A se termine pour démarrer la B (sauf si l’activité A dispose d’une marge.
+            </h2>
+         </div>
 </body>
 
 </html>
