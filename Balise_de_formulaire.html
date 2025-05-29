@@ -14,7 +14,7 @@
 
             <!-- Ici c'est la saisie du nom-->
             <label for="nom">Nom &nbsp;
-                <font color="red">x</font>
+                <font color="red" aria-autocomplete="both">x</font>
             </label><br />
             <input type="text" id="nom" name="nom"  placeholder="Entrez votre nom..." value="" required title="NOM" minlength="5" maxlength="20"/><br /><br />
 
@@ -70,21 +70,21 @@
             <label for="sexeM">Masculin</label>
             <input type="radio" id="sexeF" name="sexe" value="Feminin">
             <label for="sexeF">Feminin</label><br /><br />
-    <fieldset style="width:250px;">
-            <!-- Ici c'est la saisie des couleurs-->
-            <label for="">Couleur Prefere
-                &nbsp;
-                <font color="red">x</font>
-            </label> <br />
-            <input type="checkbox" id="couleur1" name="couleur" value="red" checked="true">
-            <label for="couleur1">Couleur 1</label>
-            <input type="checkbox" id="couleur2" name="couleur" value="green">
-            <label for="couleur2">Couleur 2</label>
-            <input type="checkbox" id="couleur3" name="couleur" value="black" checked="true">
-            <label for="couleur3">Couleur 3</label>
-            <input type="checkbox" id="couleur4" name="couleur" value="yellow">
-            <label for="couleur4">Couleur 4</label><br />
-    </fieldset><br /><br />
+            <fieldset style="width:250px;">
+                <!-- Ici c'est la saisie des couleurs-->
+                <label for="">Couleur Prefere
+                    &nbsp;
+                    <font color="red">x</font>
+                </label> <br />
+                <input type="checkbox" id="couleur1" name="couleur" value="red" checked="true">
+                <label for="couleur1">Couleur 1</label>
+                <input type="checkbox" id="couleur2" name="couleur" value="green">
+                <label for="couleur2">Couleur 2</label>
+                <input type="checkbox" id="couleur3" name="couleur" value="black" checked="true">
+                <label for="couleur3">Couleur 3</label>
+                <input type="checkbox" id="couleur4" name="couleur" value="yellow">
+                <label for="couleur4">Couleur 4</label><br />
+            </fieldset><br /><br />
             <label for="pays">Selectionner Votre Pays</label>
             <select name="pays" id="pays">
                 <option value="Cameroun">Cameroun</option>
@@ -108,15 +108,15 @@
     <!-- Ici c'est la saisie du nom-->
             <label for="niveau">Selectionner le Niveau &nbsp;
                 <font color="red">x</font>
-            </label><br />
-        <select name="niveau" id="niveau">
+            </label>
+            <select name="niveau" id="niveau">
                 <option value="0" selected>S&eacute;lectionner</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
-        </select>
+            </select><br /><br />
 
             <!-- Ici c'est le bouton de validation-->
             <input type="submit" title="SUBMIT"/> &nbsp; 
@@ -127,7 +127,7 @@
     </fieldset><br/>
 
     <a href="Balise_de_reference.html"> 
-        <button title="Bouton" type="button" value="Connection">Connection</button>
+        <button title="Bouton" type="button" value="Connection">Vers le Formulaire Balise de R&eacute;f&eacute;rence</button>
     </a>
 </body>
 
