@@ -44,6 +44,7 @@
         .div4 {
             text-align: justify;
             color :red;
+            /* ici on met les premieres lettres en majuscule*/
             text-transform: capitalize;
             /* ici on decale le debut du texte. La tabulation*/
             text-indent: 20%;
@@ -61,4 +62,43 @@
             border: 2px solid black;
             width: 200px;
         }
+        #group div {
+            /*border: 2px solid black;*/
+        }
+        #group > div {
+            /*border: 2px solid black;*/
+            color: aquamarine;
+        }
+        /*ici on utilise la pseudo class (plus besoin d'appeler l'element pas sa balise ou sa class ou l'Id)*/
+        #group > div :first-child {
+            border: 0px solid black;
+            color:blueviolet;
+        }
+        #group > div :last-child {
+            border: 0px solid black;
+            color:blueviolet;
+        }
+        #group > div :nth-child(2) {
+            border: 0px solid black;
+            color:brown;
+        }
+        div :empty {
+            border: 2px solid red;
+        }
+        .classLogin::after {
+            content: "*";
+            color: blue;
+        }
+        .classLogin::before {
+            content: "*";
+            color:blueviolet;
+        }
+        
+        .classLogin::selection {
+            content: "*";
+            color:red;
+            background-color: pink;
+        }
+
+
 

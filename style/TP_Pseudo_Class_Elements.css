@@ -1,0 +1,51 @@
+form {
+    margin-left: 50px;
+}
+label {
+    color:black;
+}
+label:not(.hobbies)::after   {
+    content: "*";
+    color:red;
+}
+div {
+    border: 3px solid red;
+    width: 400px;
+    height: 250px;
+    padding: 20px;
+}
+/*input {
+    outline: none;
+}*/
+input:focus {
+    background-color: hotpink;
+    color: indianred;
+}
+input[type="checkbox"]:checked {
+    box-shadow: 0 0 10px 5px red;
+}
+
+input[type="radio"]:checked {
+    box-shadow: 0 0 10px 5px red;
+}
+input:disabled {
+    background-color: rgb(27,27,22);
+}
+input:invalid {
+    box-shadow: 0 0 5px 5px green;
+}
+a {
+    width: 100px;
+    height: 50px;
+    /* pour le margin top-right-botton-left*/
+    margin: 100px 0 50px 30px;
+    padding: 5px;
+    text-decoration: none;
+    color: blue;
+    text-transform: uppercase;
+    border: 1px solid yellow;
+    border-radius: 10px 30px 40px 20px; /* top-right-botton-left* on peut aussi definir une seule dimension pr tout le monde*/
+    /*box-shadow:brown; met les ombres de contour*/
+    box-shadow: 10px 5px 20px pink ;/* ombre a droite en bas ou en haut*/
+}
+       
