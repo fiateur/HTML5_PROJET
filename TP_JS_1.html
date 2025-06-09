@@ -12,6 +12,8 @@
             //appel de la fonction chargerment automatique de mon JS
             chargerPage() ;
         })
+
+        
         //Declaration d'une constante
         const constante=5;
         //ici c'est la declaration d'une fonction qui va afficher la valeur de name 
@@ -36,12 +38,29 @@
             let istest=false;
             let username=document.getElementsByName("username")[0].value ;
 
-            if (username=="FIAHAD" || username=="BRUNO" || username=="MICHAEL") {
-                istest=true ;
-            } //on aurait pu ajouter le else {istest=false;} mais ici c pas neccessaire
-            alert("Controle de saisie UserName = " + istest) ;
-            return istest;
+           /* on verifie si le champ username est nom vide, non null, et est l'un des noms accepte  */
+           if ((username!="" && username!=null)
+                    && (username=="FIAHAD" || username=="BRUNO" || username=="MICHAEL")
+                ){
+                    istest=true ;
+                    //on aurait pu ajouter le else {istest=false;} mais ici c pas neccessaire
+                    alert("Controle de saisie UserName = " + istest) ;
+                    return istest;
+                }
+            }
+        //fonction de verificaton Majuscule et chiffre dans le password
+        function verificationDePasse(password){
+            
+            const contientMajuscule = /[A-Z]/.test(password) ;
+            const contientChiffre = /[0-9]/.test(password) ;
+
+            if (contientMajuscule && contientChiffre) {
+                return true ;
+            } else{
+                return false ;
+            }
         }
+            
         //fonction de verificaton de la longueur et de la Majuscule et chiffre dans le password
         function controlePassword(){
             //declaration d'une variable de type booleen
@@ -59,18 +78,6 @@
             alert("Controle de saisie Password est = " + istestP) ;
             return istestP ;
         }
-        //fonction de verificaton Majuscule et chiffre dans le password
-        function verificationDePasse(password){
-            
-            const contientMajuscule = /[A-Z]/.test(password) ;
-            const contientChiffre = /[0-9]/.test(password) ;
-
-            if (contientMajuscule && contientChiffre) {
-                return true ;
-            } else{
-                return false ;
-            }
-        }
         //fonction de verificaton de l'email
         function ControleEmail() {
             let email=document.getElementById("email").value ;
@@ -80,9 +87,7 @@
             //Explication rapide de la regex :
 
             /*  ^[^\s@]+ : commence par un ou plusieurs caractères sauf espace ou @
-
             @ : le caractère @ obligatoire
-
             [^\s@]+ : encore un ou plusieurs caractères sauf espace ou @
 
             \. : un point littéral .
@@ -95,12 +100,12 @@
 
         //fonction de verificaton Saisie
         function verificationDesSaisies() {
-            let CheckName=affichervaleur() ;
+            affichervaleur() ;
             let verifName=controleUsername() ;
             let verifPassword=controlePassword() ;
             let verifemail=ControleEmail() ;
 
-            if (CheckName && verifName && verifPassword && verifemail) {
+            if (verifName && verifPassword && verifemail) {
                 alert(" Les Informations sont correctes.");
                 return true ;
             } else{

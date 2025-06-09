@@ -8,6 +8,12 @@ label:not(.hobbies)::after   {
     content: "*";
     color:red;
 }
+/*methode pour appliquer le css sur les elements avec le NOT sur certains elements*/
+
+label:not(.checkbox-label, :empty, .radio-label)::after {
+    content: " * ";
+    color: red;
+}
 div {
     border: 3px solid red;
     width: 400px;
@@ -48,5 +54,15 @@ a {
     border-radius: 10px 30px 40px 20px; /* top-right-botton-left* on peut aussi definir une seule dimension pr tout le monde*/
     /*box-shadow:brown; met les ombres de contour*/
     box-shadow: 10px 5px 20px pink ;/* ombre a droite en bas ou en haut*/
+}
+/* la "selection"  dans une balise est differente dans un lien */
+label:not(.checkbox-label, :empty, .radio-label)::selection {
+    background-color: yellow;
+    color: orange; 
+}
+
+a:hover {
+    background-color: yellow;
+    color: red;
 }
        
