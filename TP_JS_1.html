@@ -19,7 +19,7 @@
         //ici c'est la declaration d'une fonction qui va afficher la valeur de name 
         function affichervaleur() {
             let username=document.getElementsByName("username")[0].value ;
-            alert('Le Nom du User est :'+username) ;
+            alert('Le Nom du User est : ' + username) ;
         }
         
         //ici c'est la declaration d'une fonction charger automatiquement le contenu a executer
@@ -97,10 +97,113 @@
             alert("Controle de saisie de l'adresse email est = " + regex.test(email)) ;
             return regex.test(email);
         }
+        //Operateur de comparaison
+        function operateurDeComparaison() {
+            //declaration des variables
+            let number1 = 1, number2 = 2, number3 = 4, result;
+            //ici la variable result va recevoir un booleen resultat de la comparaison entre les deux numbers 1 et 3
+            result = number1 == number3 ;
+            // on affiche la valeur de result qui est false 
+            alert("Number1 est il egal a number3 : " + result);
+            result = number1 < number3 ;
+            // on affiche la valeur de result qui est true 
+            alert("Number1 est il inferieur a number 3 : " + result);
+        }
+        //utilisation de la fonction confirm pour les interactions, avec if et else
+        function interactionConfirm() {
+            if (confirm('Pour accéder à ce site vous devez être une fille, cliquez sur "OK" si c\'est le cas.')) {
+                    alert('Vous allez être redirigé vers le site.');
+                }else {
+                    alert("Désolé, vous n'avez pas accès à ce site.");
+                }
 
+        }
+        //utilisation de la fonction confirm if, else et prompt
+        function interactionConfirmPrompt() {
+            var floor = parseInt(prompt("Entrez l'étage où l'ascenseur doit se rendre (de -2 à 30) :"));
+            if (floor == 0) {
+                alert('Vous vous trouvez déjà au rez-de-chaussée.');
+            } else if (-2 <= floor && floor <= 30) {
+                        alert("Direction l'étage n°" + floor + ' !');
+                    } else {
+                            alert("L'étage spécifié n'existe pas.");
+                     }
+
+        }
+
+        //fonction condition switch
+        function conditionSwitch() {
+            var drawer = parseInt(prompt('Choisissez le tiroir à ouvrir (1 à 4) :')); //on précise bien le type de la valeur, ici un nombre avec la fonction parseInt()
+            switch (drawer) {
+            case 1: // on pose chaque cas l'un après l'autre ; on met des apostrophes si l'on vérifie des chaînes de caractères au lieu de nombres
+                alert('Contient divers outils pour dessiner : du papier, des crayons, etc.');
+                break; // on arrête la fonction pour passer à un autre cas
+            case 2:
+                alert('Contient du matériel informatique : des câbles, des composants, etc.');
+                break;
+            case 3:
+                alert('Ah ? Ce tiroir est fermé à clé ! Dommage !');
+                break;
+            case 4:
+                alert('Contient des vêtements : des chemises, des pantalons, etc.');
+                break;
+            default: // on pose une autre possibilité, pour gérer une erreur de l'utilisateur
+                alert("Info du jour : le meuble ne contient que 4 tiroirs et, jusqu'à preuve du contraire, les tiroirs négatifs n'existent pas.");
+            }
+        }
+        // les ternaires pour simplifier les conditions 
+        function ternaires() {
+            var startMessage = 'Votre genre : ', endMessage, adult = confirm('Êtes-vous une fille ?');
+            //si le resultat de "adult = confirm('Êtes-vous une fille ?')" est oui alors endMessage recoit Fille sinon alors Garcon"
+            endMessage = adult ? 'Fille' : 'Garçon';
+            alert(startMessage + endMessage);
+        }
+
+        //exercices sur les conditions
+        function exercicesConditions1() {
+             var age = parseInt(prompt('Quel est votre âge ?'));
+            if (1 <= age && age <= 6) {
+                alert('Vous êtes un jeune enfant.');
+                } else if (7 <= age && age <= 11) {
+                        alert ('Vous êtes un enfant qui a atteint l\'âge de raison.');
+                    } else if (12 <= age && age <= 17) {
+                            alert ('Vous êtes un adolescent.');
+                        } else if (18 <= age && age <= 120) {
+                            alert ('Vous êtes un adulte.');
+                            } else {
+                                alert ('Erreur !!');
+                                }
+        }
+        function exercicesConditions2() {
+             var age = parseInt(prompt('Quel est votre âge ?'));
+             switch(age) {
+                case  1 <= age && age <= 6 :
+                    alert('Vous êtes un jeune enfant.');
+                    break;
+                case 7 <= age && age <= 11 :
+                    alert ('Vous êtes un enfant qui a atteint l\'âge de raison.');
+                    break;
+                
+                case 18 <= age && age <= 120 :
+                    alert ('Vous êtes un adulte.');
+                    break;
+                
+                default :
+                    alert ('Erreur !!.');
+                    break;
+             }
+        }
         //fonction de verificaton Saisie
+
         function verificationDesSaisies() {
             affichervaleur() ;
+            operateurDeComparaison() ;
+            interactionConfirm() ;
+            interactionConfirmPrompt();
+            conditionSwitch();
+            ternaires();
+            exercicesConditions1();
+            exercicesConditions2();
             let verifName=controleUsername() ;
             let verifPassword=controlePassword() ;
             let verifemail=ControleEmail() ;
