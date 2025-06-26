@@ -10,9 +10,8 @@
         //declaration d'un evenement. Evenement automatique au chargement de la page
         document.addEventListener("DOMContentLoaded", function() {
             //appel de la fonction chargerment automatique de mon JS
-            chargerPage() ;
+            //chargerPage() ;TP_JS_1.html
         })
-
         
         //Declaration d'une constante
         const constante=5;
@@ -153,9 +152,10 @@
         }
         // les ternaires pour simplifier les conditions 
         function ternaires() {
-            var startMessage = 'Votre genre : ', endMessage, adult = confirm('Êtes-vous une fille ?');
-            //si le resultat de "adult = confirm('Êtes-vous une fille ?')" est oui alors endMessage recoit Fille sinon alors Garcon"
-            endMessage = adult ? 'Fille' : 'Garçon';
+            var startMessage = 'Votre genre : ', 
+                endMessage, adult = confirm('Êtes-vous une fille ?');
+                //si le resultat de "adult = confirm('Êtes-vous une fille ?')" est oui alors endMessage recoit Fille sinon alors Garcon"
+                endMessage = adult ? 'Fille' : 'Garçon';
             alert(startMessage + endMessage);
         }
 
@@ -193,18 +193,228 @@
                     break;
              }
         }
+        //exercices sur les conditions ternaires
+        function exercicesConditionsTernaires() {
+             var age = parseInt(prompt('Quel est votre âge ?'));
+            let isAge = false;
+            isAge = (1 <= age && age <= 6) ? alert('Vous êtes un jeune enfant.') : 
+                    (7 <= age && age <= 11) ? alert ('Vous êtes un enfant qui a atteint l\'âge de raison.'):
+                    (12 <= age && age <= 17) ? alert ('Vous êtes un adolescent.') : 
+                    (18 <= age && age <= 120) ? alert ('Vous êtes un adulte.') : alert ('Erreur !!');                  
+
+        }
+        //21 06 2025
+        //exercices sur les incrementations et les decrementations
+        function incrementationsDecrementation() {
+            let number =  number2 = number3 = 0;
+            
+            number++;
+            number2 += 1; 
+            number3 = number3 + 1; 
+            alert('Number = ' + number); // Affiche : « 1 »
+            alert('Number2 = ' + number2); // Affiche : « 1 »
+            alert('Number3 = ' + number3); // Affiche : « 1 »
+
+            number--;
+            number2 -= 1; 
+            number3 = number3 - 1;
+            alert('Number = ' + number); // Affiche : « 0 »   
+            alert('Number2 = ' + number2); // Affiche : « 0 » 
+            alert('Number3 = ' + number3); // Affiche : « 0 »              
+
+        }
+        //Boucle for
+        function boucleFor() {
+            for (var i=1; i<=5; i++) { // On initialise une variable, et tant qu'elle est inférieure ou égale à 5 on l'incrémente de 1.
+                alert('Itération n°' + i); // A chaque fois on affiche une boîte de dialogue (5 fois)
+            } 
+        }
+
+        //Boucle for avec incrementation chaine de caracteres
+        function boucleForIncrementation() {
+            for (var i = 0, prenoms = '', prenom; true; i++) {
+                prenom = prompt('Entrez un prénom :');
+                if (prenom) {
+                     prenoms += prenom + ' '; 
+                } else { 
+                    break;
+                 } 
+            }
+            alert('Il y a ' + i + ' prénoms :\n\n' + prenoms); // Les \n servent à faire des sauts de ligne
+        }
+
+        //Boucle while (tant que)
+        function boucleWhile() {
+            let number = parseInt(prompt('Saisir un Nombre >=0!'));
+            while (number < 10) {
+                 number++; // Tant que le nombre est inférieur a 10, on l'incrémente de 1
+                 alert(' Le Nombre incremente est : ' + number);
+            }
+            alert(' Le Nombre Total est : ' +number); // Affiche : « 10 »
+        }
+
+        //Boucle while (tant que) avec condition booleen et prompt
+        function boucleWhileWithBooleenCondition() {
+            let prenoms = '', prenom; // On crée une variable prenoms pour mémoriser
+            while (confirm('Etes-vous un Eleve?')) {
+                prenom = prompt('Entrez un prénom :'); // L'utilisateur entre chaque prenom
+                if (prenom) {
+                    prenoms += prenom + ' '; // Ajoute le nouveau prénom ainsi qu'une espace
+                } else {
+                    break; // On quitte la boucle
+                }
+            } 
+            alert(prenoms); // Affiche les prénoms à la suite
+        }
+
+        //Boucle do while (faire tant que) 
+        function boucleDoWhileWithBooleenCondition() {
+            let prenoms = '', prenom; // On crée une variable prenoms pour mémoriser
+            do {
+                prenom = prompt('Entrez un prénom :'); // L'utilisateur entre chaque prenom
+                if (prenom) {
+                    prenoms += prenom + ' '; // Ajoute le nouveau prénom ainsi qu'une espace
+                } else {
+                    break; // On quitte la boucle
+                }
+            } while (confirm('Etes-vous un Eleve?')) ;
+            alert(prenoms); // Affiche les prénoms à la suite
+        }
+
+        // Declaration d'une Variables Locales et Globaless
+        let variableGlobale = 'Ici la variable globale !';
+        // Declaration d'une variable locale 
+        function variablesLocalesGlobales() {
+            let VariableLocale = 'Ici la variable locale !';
+            alert(variableGlobale);
+            alert(VariableLocale);
+        }
+
+        // Exemple de fonction anonyme. 
+        // C'est une fonction qu'on vient creer dans la declaration d'une variable
+        //Et qui directement transforme la variable en fonction
+        function fonctionAnonyme() {
+            let sayHello = function() {
+                                alert('Bonjour !');
+                            };
+            sayHello(); 
+        }
+
+        // Exemple de declaration de Tableau (Array)
+        //Declare un tableau et l'initialise avec des valeurs, puis affiche une valeur choisie
+        function exempleTypeArray() {
+            var myArray = ['Rafael', 'Mathilde', 'Ahmed', 'Jérôme', 'Guillaume'];
+            // Le contenu se définit entre crochets, avec une virgule entre chaque valeur.
+            // La chaîne 'Rafael' correspond à l'indice 0, 'Mathilde' à l'indice 1...
+            alert(myArray[1]); // Affiche : « Mathilde » 
+            myArray[1] = 'Paul'; //Affectation de la valeur Paul
+            alert(myArray[1]); // Affiche : « Paul » 
+        }
+
+        // Operations sur les tableaux 
+        function exempleTypeArrayOperationsTableau() {
+            var myArray = ['Rafael', 'Mathilde', 'Ahmed', 'Jérôme', 'Guillaume'];
+
+            myArray.shift(); // Retire « Rafael »
+            myArray.pop(); // Retire « Guillaume »
+            alert(myArray); // Affiche « Mathilde,Ahmed,Jérôme »
+
+            // Le contenu se définit entre crochets, avec une virgule entre chaque valeur.
+            // La chaîne 'Rafael' correspond à l'indice 0, 'Mathilde' à l'indice 1...
+            myArray.push('Paul') ; // Insere une valeur a la fin du tableau
+            alert(myArray); // Affiche le tableau
+
+            var isName = myArray.find(n => n == 'Paul');
+            alert('Recherche de Paul :' + isName);
+
+        }
+
+        // Operations sur les tableaux : fonction split
+        function fonctionSplitTableau() {
+            var cousinsString = 'Jérôme Guillaume Paul',
+            //on cree une variable cousinsArray qui sera de type tableau grace a la fonction split()
+            //la fonction split qui retourne un tableau en decoupant la chaine de caractere a chaque fois
+            //  qu'elle va trouver  l'argument de recherche de la fonction (le separateur)
+            cousinsArray = cousinsString.split(' '); // Avec les espaces, on a trois items
+            alert(cousinsString);
+            cousinsArray.push('Bruno'); //insertion d'une valeur
+            alert(cousinsArray); //il affiche  [Jérôme, Guillaume, Paul, Bruno]
+            //la fonction join() fait l'inverse du split, il concatene avec l'argument de la fonction comme separateur
+            var cousinsString_2 = cousinsArray.join('-');
+            alert(cousinsString_2); //il affiche  [Jérôme-Guillaume-Paul-Bruno]
+        }
+
+        // Parcourir un tableau
+        function ParcourirTableau() {
+            cousinsString = 'Jérôme Guillaume Paul Bruno',
+            cousinsArray = cousinsString.split(' '); // Avec les espaces, on a 4 items
+            alert('Notre Chaine de Caractere est : ' + cousinsString);
+            alert('Notre Tableau est : ' + cousinsArray); //il affiche  [Jérôme, Guillaume, Paul, Bruno]
+            for(let i=0; i < cousinsArray.length; i++){
+                alert('La Valeur ' + i + ' du tableau est ' + cousinsArray[i]);
+            }
+
+        }
+
+        // objet littereaux
+        function objetsLittereaux() {
+            var family = {
+                self: 'Rafael',
+                sister: 'Mathilde',
+                brother: 'Ahmed',
+                cousin_1: 'Jérôme',
+                cousin_2: 'Guillaume'
+            };
+            var id = 'sister';
+            alert(family[id]); // Affiche : « Mathilde »
+            alert(family.brother); // Affiche : « Ahmed »
+            alert(family['self']); // Affiche : « Rafael »
+            family['uncle'] = 'Pauline'; // On ajoute une donnée, avec un identifiant.
+            family.aunt = 'Karim'; // On peut ajouter aussi de cette manière.
+            alert(family.uncle);
+        }
+
+        // Exercice sur les Tableau P16
+        function exoTableau() {
+            let prenom, tabPrenom=[]; // On crée une variable pour capter les valeurs saisies et un tableau
+            
+            while (prenom = prompt('Entrez un prénom :')){ 
+                    tabPrenom.push(prenom);
+            } 
+            if (tabPrenom.length == 0){
+                alert('Aucun Prenom Saisie!'); // Le Tableau est vide
+            }else{
+                alert(tabPrenom.join('-')); // Affiche la liste des valeurs du tableau et separees par un espace
+            }
+        }
         //fonction de verificaton Saisie
 
         function verificationDesSaisies() {
-            affichervaleur() ;
-            operateurDeComparaison() ;
-            interactionConfirm() ;
-            interactionConfirmPrompt();
-            conditionSwitch();
-            ternaires();
-            exercicesConditions1();
-            exercicesConditions2();
-            let verifName=controleUsername() ;
+            //affichervaleur() ;
+            //operateurDeComparaison() ;
+            //interactionConfirm() ;
+            //interactionConfirmPrompt();
+            //conditionSwitch();
+            //ternaires();
+            //exercicesConditions1();
+            //exercicesConditions2();
+            //exercicesConditionsTernaires()
+            //incrementationsDecrementation();
+            //boucleFor();
+            //boucleForIncrementation();
+            //boucleWhile();
+            //boucleWhileWithBooleenCondition();
+            //boucleDoWhileWithBooleenCondition();
+            //variablesLocalesGlobales();
+            //fonctionAnonyme();
+            //exempleTypeArray();
+            //exempleTypeArrayOperationsTableau();
+            //fonctionSplitTableau();
+            //ParcourirTableau() ;
+            //objetsLittereaux() ;
+            exoTableau();
+
+            /*let verifName=controleUsername() ;
             let verifPassword=controlePassword() ;
             let verifemail=ControleEmail() ;
 
@@ -214,7 +424,7 @@
             } else{
                 alert(" Les Informations ne sont pas correctes");
                 return false ;
-            }
+            }*/
         }
 
      </script>
@@ -223,12 +433,13 @@
     <form action="" method="post">
         <div>
             <!-- Ici c'est la saisie du username-->
+             <!-- Exemple d'utilisation d'un evenement dans l'element / onclic-->
             <label for="username">username &nbsp;</label><br />
-            <input type="text" id="username" name="username" required value="FIAHAD" title="User Name"/><br />
+            <input type="text" id="username" name="username" required value="FIAHAD" title="User Name" onfocus="document.getElementById('username').value = 'Vous avez maintenant le focus sur le username, bravo !';"/><br />
             
             <!-- Ici c'est la saisie du Password-->
             <label for="password">Password &nbsp;</label><br />
-            <input type="password" id="password" name="password" value="qwe" required title="Password" /><br />
+            <input type="text" id="password" name="password" value="qwe" required title="Password" /><br />
 
             <!-- Ici c'est la saisie de l'email-->
             <label for="email">Email &nbsp;</label><br />
@@ -253,5 +464,16 @@
         </div>
         <a href="Balise_de_reference.html"> <input type="button" value="Lien Vers Balise de Balise_de_reference"></a>      
     </form>
+    <script>
+        //declaration d'un evenement sur un elenemt cible. ici document.getElementById('password')
+        var textpassword = document.getElementById('password');
+        textpassword.addEventListener('focus', function(e) {
+            e.target.value = "Vous avez le focus !";
+        }, true)
+
+        textpassword.addEventListener('blur', function(e) {
+            e.target.value = "Vous n'avez pas le focus !";
+        }, true)
+    </script>
 </body>
 </html>

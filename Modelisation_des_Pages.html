@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelisation des Pages</title>
+</head>
+<body>
+    <form action="" method="post">
+        <div id="myDiv">
+            <p>Ici on teste la Modelisation des Pages <a>DHTML</a></p>
+        </div>
+        <div id="secondDiv">
+            <p>Div 2 <a>DHTML</a></p>
+        </div>
+        <div>
+            <!-- Ici c'est la saisie du Login-->
+            <label for="login">Login
+                    &nbsp;
+                    <font color="red">x</font>
+                </label><br />
+            <input type="text" id="login" name="login"  placeholder="Entrez votre Login..." value="" required title="LOGIN" minlength="15" maxlength="20"/><br /><br />
+            <!-- Ici c'est la saisie du password-->
+                <label for="password">password
+                    &nbsp;
+                    <font color="red">x</font>
+                </label><br />
+                <input type="password" id="password" name="password" required title="PASSWORD" placeholder="Entrez votre password..."/> <br /><br />
+        </div>
+
+        <div id="divCouleurH">
+                <label for="">Couleur Prefere Homme
+                    &nbsp;
+                    <font color="red">x</font>
+                </label> <br />
+                <input type="checkbox" id="couleurH1" name="couleurH" value="red" checked="true">
+                <label for="couleurH1">Couleur H1</label>
+                <input type="checkbox" id="couleurH2" name="couleurH" value="green">
+                <label for="couleurH2">Couleur H2</label><br />
+                <input type="checkbox" id="couleurH3" name="couleurH" value="black" checked="true">
+                <label for="couleurH3">Couleur H3</label>
+                <input type="checkbox" id="couleurH4" name="couleurH" value="yellow">
+                <label for="couleurH4">Couleur H4</label>
+        </div><br />
+
+        <a id="myLink" href="http://www.un_lien_quelconque.com">Un lien modifié dynamiquement</a>
+
+        <div id="divInnerHTML">
+            <p>Ici on va voir divInnerHTML qui permet de recuperer <a>le Code HTML</a> enfant d'un element</p>
+        </div>
+
+        <blockquote id="idtestParentNode">
+            <p id="myP">
+                Un peu de texte, 
+                <a>un lien</a> et <strong>une portion en emphase</strong>
+            </p>
+            <p id="myP2">Paragraphe 2 !
+                <p id="myP3">Paragraphe 3 !</p>
+            </p>
+        </blockquote>
+        
+        <div>
+            <p id="divCloneModSup"> 
+                Ici on clone, remplace<a>et Supprime</a>
+            </p>
+        </div>
+    </form>
+    <script>
+        var div = document.getElementById('myDiv');
+        alert(div); // il affiche  [object HTMLDivElement]
+        var divs = document.getElementsByTagName('div');
+
+        //Affiche un tableau avec comme contenu le type de l'element html en parametre
+        for (var i = 0, c = divs.length ; i < c ; i++) {
+            alert('Element div  n° ' + (i + 1) + ' : ' + divs[i]);
+        }  
+
+        var divP = document.getElementsByTagName('p');
+        for (var i = 0, c = divP.length ; i < c ; i++) {
+            alert('Element P n° ' + (i + 1) + ' : ' + divP[i]);
+        } 
+        var divGetElementsByName = document.getElementsByName('couleurH');
+        for (var i = 0, c = divGetElementsByName.length ; i < c ; i++) {
+            alert('Element ChechBox ByName n° ' + (i + 1) + ' : ' + divGetElementsByName[i].value);
+        } 
+        //le QuerySelector identifie un element CSS, 
+        // il renvoi le 1er element trouve correspondant au selecteur css specifie
+        //le QuerySelectorAll() renvoi quant a lui tous les elements
+        var querySelectorElement = document.querySelector('#divCouleurH #couleurH1');
+        alert('Element ChechBox Avec querySelector n° ' + (1) + ' : ' + querySelectorElement.value);
+
+        //ici on affiche toutes les checkbox ayant pour name couleurH et parent la divCouleurH
+        var querySelectorElements = document.querySelectorAll('#divCouleurH input[name="couleurH"]');
+        for (var i = 0, c = querySelectorElements.length ; i < c ; i++) {
+            alert('Element ChechBox by querySelectorElements n° ' + (i + 1) + ' : ' + querySelectorElements[i].value);
+        } 
+
+        //test des methodes getAttribute() et setAttribute 
+        //getAttribute renvoi la valeur de l'attribut d'un element
+        //SetAttribute permet de modifier la valeur de l'attribut d'un element
+        var link = document.getElementById('myLink');
+        var href = link.getAttribute('href'); // On récupère l'attribut « href »
+        alert('URL Actuel : ' + href);
+        link.setAttribute('href', 'http://blog.crdp-versailles.fr/rimbaud/'); // on édite
+        alert('Nouveau URL : ' + link.getAttribute('href'));
+
+        //InnerHTML permet de recuperer tout le Code HTML d'un element html enfant
+        var div = document.getElementById('divInnerHTML');
+        alert(div.innerHTML);
+         //Ou encore ajouter un contenu à celui qui est en place (à éviter dans une boucle) :
+        document.getElementById('myP2').innerHTML += ' et <strong>Ce texte a ete ajoute avec innerHTML</strong>.';
+        alert(document.getElementById('myP2').innerHTML);
+        
+        //parentNode permet d'acceder aux elements (valeurs attributs) du parent d'un element html
+        //nodeType et nodeName permettent de vérifier le type et le nom d'un nœud
+        //firstChild et lastChild permettent d'accéder au premier et au dernier élément d'un nœud
+        var paragraph = document.getElementById('myP');
+        var blockquote = paragraph.parentNode;
+        alert(blockquote.id); // affiche l'id du Parent
+        alert(blockquote.getAttribute('id')); // ceci donne le meme resultat
+        alert(' Le Type est : ' + paragraph.nodeType + '\n\n' + ' Le Name est : ' + paragraph.nodeName.toLowerCase()); //renvoi 1 et P
+        
+        var first = paragraph.firstChild;
+        var last = paragraph.lastChild;
+        alert('Nom de la balise du 1er element du noeud : ' + first.nodeName.toLowerCase()); 
+        alert('Nom de la balise du dernier element du noeud : ' + last.nodeName.toLowerCase());
+        alert('Valeur du 1er element du noeud : ' + first.nodeValue);
+        alert('la valeur de l attribut data du premier fils du dernier element : ' + last.firstChild.data);
+        
+        //comment creer un element, initialiser ses attributs et l'inserer dans un div 
+        // on creer l'element
+        var newLink = document.createElement('a');
+        //on initialise quelaues attributs
+        newLink.id = 'sdz_link';
+        newLink.href = 'http://blog.crdp-versailles.fr/rimbaud/';
+        newLink.title = 'Découvrez le blog de la Classe Actu !';
+        newLink.setAttribute('tabindex', '10');
+        //on insere. il sera le nouvel élément est le dernier enfant dans le paragraphe avec id 'myP'
+        document.getElementById('myP').appendChild(newLink);
+
+        //on cree le contenu du lien sur lequel on va cliquer
+        var newLinkText = document.createTextNode("Nouveau Lien Cree et inserer Via JavaScript");
+        newLink.appendChild('Test de lien'); 
+
+        //Ici on va cloner (cloneNode()), remplacer(replaceChild()) et supprimerremplacer(removeChild()) un element 
+        var link = document.getElementsByTagName('a')[0];
+        var newLabel= document.createTextNode('et en fin voir comment supprimer');
+        
+        link.replaceChild(newLabel, link.firstChild); //remplace le contenu de la premiere balise a 
+
+        link.parentNode.removeChild(link); //supprime document.getElementsByTagName('a')[0]
+
+        
+    </script>
+</body>
+</html>

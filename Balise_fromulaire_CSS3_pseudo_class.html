@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo Class</title>
+    <link rel="stylesheet" href="style/style_pseudo_class.css">
+    <script>
+        // let Username = document.getElementsByName('Username')[0].value ;
+
+        /* Declaration d-une variable constante*/NOM
+        const valeurNonModifiable = 2 ;
+
+        // declarer un evenement
+            document.addEventListener('DOMContentLoaded', function(){
+                verificationDesSaisies();
+            }) 
+
+        // Declaration d-une fonction
+        function afficherValeurNom () {
+            alert ('Le nom de la personnes est '+ document.getElementsByName("Username")[0].value) ;
+        }
+
+        // declare la fonction controle username
+        function controleUserName () {
+
+              // Premier categorie d'instruction (;): la declaration des variables elements HTML 
+            let username = document.getElementById('username');
+            let usernamevalue = username.value.toUpperCase();
+           
+             // Premiere categorie d'instruction (;): la declaration des variables boolennes 
+            let isTest = false ;
+            
+            // Deuxieme categorie d'instruction ({}): la structure conditionnelle #IF# 
+            if ( 
+                    (usernamevalue != "" && usernamevalue != null) 
+                        && (username.value.toUpperCase() == 'bruno'.toUpperCase() || usernamevalue == 'parfait'.toUpperCase() || usernamevalue == 'michael'.toUpperCase())
+                ) {
+                    isTest = true ;
+            }
+
+            alert ('Le controle de saisie de nom : '+ isTest) ;
+
+            // troisieme categorie d'instructions: types de retour de la fonction
+            return isTest ; 
+        }
+        // declarationde fonction password : Regele d-une fonction qui verifie si un mot de passe contient au moins 1 lette majuscule && 1 chiffre
+        function verifierMotDePasse(password) {
+            const contientMajuscule = /[A-Z]/.test(password); // True ou False
+            const contientChiffre = /[0-9]/.test(password);  //  True ou False
+
+            //(contienMajuscule ==true && contientchiffre == false)
+            if (contientMajuscule && contientChiffre) {
+                return true;
+            } else {
+                return false ;
+            }
+        } 
+        function controlePassword (){
+            let password = document.getElementById('password').value;
+            let isTest = true ;
+
+            // Appel d-une fonction dans une fonction
+            const isGoodPassword = verifierMotDePasse(password);
+
+            // verification de la taille des caracteres
+            if (password.lenght <= 7) {
+                isTest = false;
+                
+            }
+
+            if (isGoodPassword == false) {
+                isTest =false ;
+            }
+
+            if (!isGoodPassword ) {
+                isTest = false ;
+            }
+
+            alert('controle de saisie de password =='+ isTest);
+            return isTest;
+        }
+        // controle de l'email
+        function controleEmail(){
+            let emailValue = document.getElementById('email').value;
+            
+        // Regex pour valider une adresse email standard
+            const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const isGoodEmail = regexEmail.test(emailValue);
+            
+            return isGoodEmail; 
+        } 
+
+        function verificationDesSaisies () {
+            exerciceConditions2();
+            exerciceConditions ();
+            ternaires();
+            operateursDeComparaison2EnSwitch();
+            listeDePossibilitesAvecSwitch();
+            interactionIntermediaireAvecIfetPrompt ();
+            afficherValeurNom(); 
+            interactionConfirmIf();
+            interaactionConfirm();
+            opreateurArythmetique();
+            concatenation();
+            promptEtConcatenation();
+            promptEtConcatenation2();
+            operateursDeComparaison();
+            operateursDeComparaison2();
+            const controleUserName = controleUserName(); 
+            const controlePassword =controlePassword();
+            const controleEmail = controleEmail(); 
+            
+            if (controleUserName && controlePassword && controleEmail) {
+                
+                alert ('Les donnees sont bien saisies') ;
+                return true;
+            } else { 
+                alert ('les donnees sont mal saisies');
+                return false;
+            }
+    }
+       function opreateurArythmetique() {
+         var number1 = 3, number2 = 2, result;
+            result = number1 * number2;
+            alert(result); 
+
+            var number = 3;
+            number = number + 5; // incrementation idem que la ligne 120
+            alert(number); 
+
+            var number4 = 3;
+            number4 += 5; // incrementation amelioree. idem que ligne 116 (si decrementation, alors remplacer + par -)
+            alert(number); 
+            
+       } 
+
+       function concatenation(){
+        var text, number1 = 4, number2 = 2;
+        text = number1 + '' + number2; 
+        /* on ajoute une chaîne de caractères vide entre les deux nombres pour permettre une concaténation sans calcul */
+        alert("concatenation : number1("+number1+") + '' + number2("+number2+") = " + text); // Affiche : « 42 »
+
+       }
+
+       function promptEtConcatenation(){
+        var userName = prompt('Entrez votre prénom :');
+        alert("votre nom est " + userName); 
+        // Affiche le prénom entré par l'utilisateur
+
+
+       }
+
+       function promptEtConcatenation2(){
+        var start = 'Bonjour ', name, end = ' !', result;
+        name = prompt('Quel est votre prénom ?');
+        result = start + name + end;
+        alert(result);
+
+       }
+
+       function operateursDeComparaison(){
+        var number1 = 2, number2 = 2, number3 = 4, result;
+        result = number1 == number2; // Au lieu d'une seule valeur, on en écrit deux avec l'opérateur de comparaison entre elles
+        alert(result); // la condition est donc vérifiée car les deux variables contiennent bien la même valeur
+        result = number1 == number3;
+        alert(result); // la condition n'est pas vérifiée car 2 est différent de 4
+        result = number1 < number3;
+        alert(result); // la condition est vérifiée car 2 est bien inférieur à 4
+
+       }
+
+       function operateursDeComparaison2(){
+        var number1 = 2, number2 = 2, number3 = 4, result;
+        if (number1 == number2) {
+            alert('true'); // la condition est donc vérifiée car les deux variables contiennent bien la même valeur
+        } else {
+            alert('false');
+        }
+
+        if (number1 == number3) {
+            alert('true'); // la condition n'est pas vérifiée car 2 est différent de 4
+        } else{
+            alert('false');
+        }
+        
+        if (number1 < number3) {
+            alert('true'); // la condition est vérifiée car 2 est bien inférieur à 4
+        } else{
+            alert('false');
+        }
+        
+        
+       }
+       function interaactionConfirm() {
+         if (confirm('Voulez-vous exécuter le code Javascript de cette page ?')) {
+            alert('Le code a bien été exécuté !');
+            }
+       }
+       function interactionConfirmIf() {
+        if (confirm('Pour accéder à ce site vous devez être une fille, cliquez sur "OK" si c\'est le cas.')) {
+            alert('Vous allez être redirigé vers le site.');
+        }  else {
+            alert("Désolé, vous n'avez pas accès à ce site.");
+        }
+
+       }
+
+       function interactionIntermediaireAvecIfetPrompt () {
+        var floor = parseInt(prompt("Entrez l'étage où l'ascenseur doit se rendre (de -2 à 30) :"));
+        if (floor == 0) {
+            alert('Vous vous trouvez déjà au rez-de-chaussée.');
+        } else if (-2 <= floor && floor <= 30) {
+            alert("Direction l'étage n°" + floor + ' !');
+        } else {
+            alert("L'étage spécifié n'existe pas.");
+        }
+
+       }
+
+       function listeDePossibilitesAvecSwitch() {
+        var drawer = parseInt(prompt('Choisissez le tiroir à ouvrir (1 à 4) :')); //on précise bien le type de la valeur, ici un nombre avec la fonction parseInt()
+        switch (drawer) {
+        case 1: // on pose chaque cas l'un après l'autre ; on met des apostrophes si l'on vérifie des chaînes de caractères au lieu de nombres
+            alert('Contient divers outils pour dessiner : du papier, des crayons, etc.');
+        break; // on arrête la fonction pour passer à un autre cas
+        case 2:
+            alert('Contient du matériel informatique : des câbles, des composants, etc.');
+        break;
+        case 3:
+            alert('Ah ? Ce tiroir est fermé à clé ! Dommage !');
+        break;
+        case 4:
+            alert('Contient des vêtements : des chemises, des pantalons, etc.');
+        break;
+        default: // on pose une autre possibilité, pour gérer une erreur de l'utilisateur
+            alert("Info du jour : le meuble ne contient que 4 tiroirs et, jusqu'à preuve du contraire, les tiroirs négatifs n'existent pas.");
+        }
+
+       }
+
+
+
+function operateursDeComparaison2EnSwitch(){
+        var number1 = 2, number2 = 2, number3 = 4, result;
+        var isTest = number1 == number2;
+        switch (isTest) {
+           case (isTest == true) :
+                alert('true'); // la condition est donc vérifiée car les deux variables contiennent bien la même valeur
+            case (isTest == false) :
+                alert('false');
+            default:
+                alert ('comparaison impossible')
+        }
+
+        switch (number1 == number3) {
+            case (true) : 
+                alert('true'); // la condition n'est pas vérifiée car 2 est différent de 4
+            case (false) : 
+                alert('false')
+            default : 
+                alert('comparaison pas possible')
+        }
+        switch (number1 < number3) {
+            case (true) :
+                alert('true'); // la condition est vérifiée car 2 est bien inférieur à 4
+            case (false) :
+                alert('false');
+           default: 
+                alert('pas de comparaison possible')
+       }
+
+    }
+function ternaires() {
+     var startMessage = 'Votre genre : ',
+        endMessage,
+        genre = confirm('Êtes-vous une fille ?');
+        endMessage = genre ? 'Fille' : 'Garçon';
+        alert(startMessage + endMessage);
+
+}
+
+function exerciceConditions () {
+     var age = parseInt(prompt('Quel est votre âge ?'));
+    if (1 <= age && age <= 6) {
+        alert('Vous êtes un jeune enfant.');
+    } else if (7 <= age && age <= 11) {
+        alert ('Vous êtes un enfant qui a atteint l\'âge de raison.');
+    } else if (12 <= age && age <= 17) {
+        alert ('Vous êtes un adolescent.');
+     } else if (18 <= age && age <= 120) {
+         alert ('Vous êtes un adulte.');
+    } else {
+        alert ('Erreur !!');
+    }
+
+}
+
+function exerciceConditions2() {
+     var age = parseInt(prompt('Quel est votre âge ?'));
+    switch (age) {
+        case (1 <= age && age <= 6) :
+            alert('Vous êtes un jeune enfant.');
+        case (7 <= age && age <= 11) :
+            alert ('Vous êtes un enfant qui a atteint l\'âge de raison.');
+        case (12 <= age && age <= 17) :
+            alert ('Vous êtes un adolescent.');
+        case (18 <= age && age <= 120) :
+            alert ('Vous êtes un adulte.');
+        default :
+            alert ('Erreur !!');
+    }
+}
+    </script>
+</head>
+<body bgcolor="pink" color="green">
+  <div><p>formulaire pseudo class</p></div>
+  <fieldset style="width: 300px; height: 300px; border: 1px solid red;">
+    <legend style="font-size: 20p; border: 1px solid red;">Formulaire</legend>
+    <form action="Balise_fromulaire_CSS3_pseudo_class.html">
+        
+        <label for="Username" >Username</label>
+        <input type="text" name="Username" id="username" required value="Bruno" class="textinput"> <br> <br>
+
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password"> required <br> <br>
+
+        <label for="email">email</label>
+        <input type="email" name="email" id="email">required <br><br>
+
+        <label for="#" class="checkbox-label"> Hobbies: </label><br>
+        <label for="" class="checkbox-label"> Criquet: </label>
+        <input type="checkbox" name="Criquet" id="Criquet" value="Criquet"> <br>
+        <label for="" class="checkbox-label"> Football: </label>
+        <input type="checkbox" name="Football" id="Football" value="Football"> <br>
+        <label for="" class="checkbox-label"> Hockey: </label>
+        <input type="checkbox" name="Hockey" id="Hockey" value="Hockey"> <br><br>
+        <label for="number">number</label>
+        <input type="number" name="number" id="number" required> <br><br>
+
+        <input type="submit" title="submit" value="submit" onclick="verificationDesSaisies();">
+        </form>
+    </fieldset>
+    
+
+
+ 
+</body>
+</html>
